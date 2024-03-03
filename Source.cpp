@@ -8,7 +8,7 @@ float fastSqrt(float number)
 
 	x2 = number * 0.5F;
 	y = number;
-	i = *(long*)&y;                       // evil floating point bit level hacking
+	i = *(long*)&y;                       // evil floating point bit level hacking - needed for using shift bits operations, telling the computer to convert the bits into a long type 
 	i = 0x5f3759df - (i >> 1);               // what the fuck? 
 	y = *(float*)&i;
 	y = y * (threehalfs - (x2 * y * y));   // 1st iteration
